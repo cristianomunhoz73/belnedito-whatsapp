@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Belnedito GastroBar - Abrindo WhatsApp...</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18265767006"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18265767006');
+</script>
+  <style>
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0D2B55;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center}
+.box{padding:32px;max-width:420px}
+h1{font-size:22px;margin:0 0 8px}
+p{opacity:.85;line-height:1.5}
+.btn{display:inline-block;margin-top:20px;background:#25D366;color:#062b16;font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px}
+.spin{width:38px;height:38px;border:4px solid rgba(255,255,255,.25);border-top-color:#25D366;border-radius:50%;margin:0 auto 20px;animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+</style>
+  </head>
+  <body>
+  <div class="box">
+  <div class="spin"></div>
+  <h1>Belnedito GastroBar</h1>
+  <p>Estamos abrindo a conversa no WhatsApp. Se nao abrir automaticamente, toque no botao abaixo.</p>
+  <a id="wa" class="btn" href="#">Abrir WhatsApp</a>
+  </div>
+  <script>
+  var WHATS = "5513996758404";
+var TEXTO = "Ola! Vim pelo Google e quero falar com o Belnedito.";
+  var DESTINO = "https://api.whatsapp.com/send?phone=" + WHATS + "&text=" + encodeURIComponent(TEXTO);
+  document.getElementById('wa').href = DESTINO;
+var CONV = 'AW-18265767006/KjYDCN2bncccEN745YVE';
+function irParaWhatsApp(){ window.location.href = DESTINO; }
+  if (typeof gtag === 'function'){
+gtag('event', 'conversion', { 'send_to': CONV, 'event_callback': irParaWhatsApp });
+  setTimeout(irParaWhatsApp, 1200);
+  } else {
+irParaWhatsApp();
+}
+  </script>
+  </body>
+  </html>
