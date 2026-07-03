@@ -31,17 +31,26 @@ p{opacity:.85;line-height:1.5}
   </div>
   <script>
   var WHATS = "5513996758404";
-var TEXTO = "Ola! Vim pelo Google e quero falar com o Belnedito.";
+  var TEXTO = "Ola! Vim pelo Google e quero falar com o Belnedito.";
   var DESTINO = "https://api.whatsapp.com/send?phone=" + WHATS + "&text=" + encodeURIComponent(TEXTO);
+  var CONV = 'AW-18265767006/KjYDCN2bncccEN745YVE';
   document.getElementById('wa').href = DESTINO;
-var CONV = 'AW-18265767006/KjYDCN2bncccEN745YVE';
-function irParaWhatsApp(){ window.location.href = DESTINO; }
-  if (typeof gtag === 'function'){
-gtag('event', 'conversion', { 'send_to': CONV, 'event_callback': irParaWhatsApp });
-  setTimeout(irParaWhatsApp, 1200);
-  } else {
-irParaWhatsApp();
-}
-  </script>
+
+  document.getElementById('wa').addEventListener('click', function(e){
+    e.preventDefault();
+    var jaDisparou = false;
+    try{ jaDisparou = sessionStorage.getItem('bel_conv_disparada') === '1'; }catch(err){}
+    if (typeof gtag === 'function' && !jaDisparou){
+      gtag('event', 'conversion', {
+        'send_to': CONV,
+        'event_callback': function(){ window.location.href = DESTINO; }
+      });
+      try{ sessionStorage.setItem('bel_conv_disparada','1'); }catch(err){}
+      setTimeout(function(){ window.location.href = DESTINO; }, 800);
+    } else {
+      window.location.href = DESTINO;
+    }
+  });
+</script>
   </body>
   </html>
